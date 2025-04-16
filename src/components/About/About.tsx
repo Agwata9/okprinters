@@ -1,42 +1,106 @@
-import { Box, Typography, Container, Grid, Avatar, Paper } from '@mui/material';
+import {
+  Box,
+  Typography,
+  Container,
+  Grid,
+  Card,
+  CardMedia,
+  CardContent,
+  useTheme
+} from '@mui/material';
 
 export const About = () => {
+  const theme = useTheme();
+
   return (
-    <Box id="about" sx={{ py: { xs: 6, md: 10 }, bgcolor: 'background.paper' }}>
+    <Box
+      id="about"
+      sx={{
+        py: { xs: 8, md: 12 },
+        bgcolor: 'background.paper',
+        background: 'linear-gradient(135deg, #f9f9ff 0%, #f0f4ff 100%)',
+      }}
+    >
       <Container maxWidth="lg">
-        <Grid container spacing={6} alignItems="center">
+        <Grid container spacing={8} alignItems="center">
+          {/* Image Section */}
           <Grid item xs={12} md={6}>
-            <Paper elevation={3} sx={{ p: 2, display: 'flex', justifyContent: 'center' }}>
-              <Avatar
+            <Card
+              elevation={6}
+              sx={{
+                borderRadius: '16px',
+                overflow: 'hidden',
+                transform: 'scale(1)',
+                transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+                '&:hover': {
+                  transform: 'scale(1.03)',
+                  boxShadow: theme.shadows[10],
+                },
+              }}
+            >
+              <CardMedia
+                component="img"
+                image="/images/about-ok-printers.jpg" // Replace with actual image
                 alt="OK Printers"
-                src="/path/to/about-image.jpg" // Replace with your image
-                sx={{ width: { xs: 250, md: 350 }, height: { xs: 250, md: 350 } }}
-                variant="square"
+                sx={{
+                  height: { xs: 260, md: 380 },
+                  width: '100%',
+                  objectFit: 'cover',
+                }}
               />
-            </Paper>
+            </Card>
           </Grid>
+
+          {/* Text Section */}
           <Grid item xs={12} md={6}>
             <Typography
-              variant="h3"
+              variant="h4"
               component="h2"
               gutterBottom
-              sx={{ fontWeight: 700 }}
+              sx={{
+                fontWeight: 800,
+                fontSize: { xs: '2rem', md: '2.5rem' },
+                color: 'text.primary',
+              }}
             >
-              About OK Printers
+              Who We Are
             </Typography>
-            <Typography variant="body1" paragraph sx={{ fontSize: '1.1rem' }}>
-              Since 2005, OK Printers has been providing high-quality printing services 
-              to businesses and individuals in our community. We take pride in our 
-              attention to detail and commitment to customer satisfaction.
+
+            <Typography
+              variant="subtitle1"
+              sx={{
+                color: 'primary.main',
+                fontWeight: 600,
+                mb: 2,
+                fontSize: '1rem',
+              }}
+            >
+              OK Printers — Your Trusted Print Partner Since 2005
             </Typography>
-            <Typography variant="body1" paragraph sx={{ fontSize: '1.1rem' }}>
-              Our team of experienced professionals uses state-of-the-art equipment 
-              to deliver prints that meet the highest standards of quality.
-            </Typography>
-            <Typography variant="body1" paragraph sx={{ fontSize: '1.1rem' }}>
-              Whether you need business cards, brochures, banners, or custom prints, 
-              we have the expertise to bring your vision to life.
-            </Typography>
+
+            <CardContent sx={{ px: 0 }}>
+              <Typography
+                variant="body1"
+                paragraph
+                sx={{ fontSize: '1.1rem', lineHeight: 1.75, color: 'text.secondary' }}
+              >
+                At OK Printers, we blend craftsmanship with cutting-edge print technology to deliver
+                stunning results for businesses and individuals alike.
+              </Typography>
+              <Typography
+                variant="body1"
+                paragraph
+                sx={{ fontSize: '1.1rem', lineHeight: 1.75, color: 'text.secondary' }}
+              >
+                With nearly two decades of experience, our team is committed to bringing your ideas to life — from bold banners to elegant invitations.
+              </Typography>
+              <Typography
+                variant="body1"
+                sx={{ fontSize: '1.1rem', lineHeight: 1.75, color: 'text.secondary' }}
+              >
+                Choose OK Printers for quality you can see, and service you can trust.
+              </Typography>
+            </CardContent>
           </Grid>
         </Grid>
       </Container>

@@ -5,7 +5,7 @@ export const Footer = () => {
     <Box component="footer" sx={{ py: 6, bgcolor: 'primary.main', color: 'primary.contrastText' }}>
       <Container maxWidth="lg">
         <Grid container spacing={4}>
-          <Grid item={true} xs={12} md={4}>
+          <Grid item xs={12} md={4}>
             <Typography variant="h6" gutterBottom sx={{ fontWeight: 700 }}>
               OK Printers
             </Typography>

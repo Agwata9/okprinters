@@ -7,16 +7,10 @@ import {
   CardContent, 
   CardMedia, 
   Collapse, 
-  IconButton, 
-  List, 
-  ListItem, 
-  ListItemText,
-  Divider,
   Chip,
   Button
 } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import LocalOfferIcon from '@mui/icons-material/LocalOffer';
 import { useState } from 'react';
 
 const services = [
