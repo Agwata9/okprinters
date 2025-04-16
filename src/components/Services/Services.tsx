@@ -1,15 +1,15 @@
-import {
-  Box,
-  Typography,
-  Container,
-  Grid,
-  Card,
-  CardContent,
-  CardMedia,
-  Collapse,
-  IconButton,
-  List,
-  ListItem,
+import { 
+  Box, 
+  Typography, 
+  Container, 
+  Grid, 
+  Card, 
+  CardContent, 
+  CardMedia, 
+  Collapse, 
+  IconButton, 
+  List, 
+  ListItem, 
   ListItemText,
   Divider,
   Chip,
@@ -83,16 +83,51 @@ export const Services = () => {
 
   return (
     <Box id="services" sx={{ 
-      py: 6,
-      background: 'radial-gradient(circle at center, #f9f9ff 0%, #f0f4ff 100%)'
+      py: { xs: 8, md: 12 },
+      background: 'radial-gradient(circle at center, #f9f9ff 0%, #f0f4ff 100%)',
+      position: 'relative',
+      '&:before': {
+        content: '""',
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        height: '20px',
+        background: 'linear-gradient(to right, #3f51b5, #2196f3)'
+      }
     }}>
-      <Container maxWidth="xl">
-        <Typography variant="h4" align="center" sx={{ 
-          fontWeight: 700, 
-          mb: 4,
-          color: 'text.primary'
-        }}>
-          Our Printing Services
+      <Container maxWidth="lg">
+        <Typography
+          variant="h2"
+          component="h2"
+          align="center"
+          gutterBottom
+          sx={{ 
+            fontWeight: 800, 
+            mb: 2,
+            color: 'text.primary',
+            fontSize: { xs: '2.2rem', md: '3rem' },
+            lineHeight: 1.2,
+            letterSpacing: '-0.5px'
+          }}
+        >
+          Transform Your Brand With<br /><Box component="span" sx={{ color: 'primary.main' }}>Exceptional Print Solutions</Box>
+        </Typography>
+
+        <Typography
+          variant="h6"
+          component="p"
+          align="center"
+          sx={{
+            mb: 8,
+            color: 'text.secondary',
+            maxWidth: '700px',
+            mx: 'auto',
+            fontSize: { xs: '1.1rem', md: '1.25rem' },
+            lineHeight: 1.6
+          }}
+        >
+          Each piece we create is crafted with precision, quality materials, and an eye for detail that elevates your brand above the competition.
         </Typography>
 
         <Grid container spacing={2} sx={{ justifyContent: 'center' }}>
@@ -108,7 +143,11 @@ export const Services = () => {
                 flexDirection: 'column',
                 borderRadius: '12px',
                 boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
-                transition: 'all 0.3s ease'
+                transition: 'all 0.3s ease',
+                '&:hover': {
+                  transform: 'translateY(-5px)',
+                  boxShadow: '0 8px 20px rgba(0,0,0,0.15)'
+                }
               }}>
                 {service.highlight && (
                   <Chip
@@ -237,6 +276,37 @@ export const Services = () => {
             </Grid>
           ))}
         </Grid>
+        
+        <Box sx={{ textAlign: 'center', mt: 6 }}>
+          <Typography 
+            variant="h6" 
+            component="p" 
+            sx={{ 
+              mb: 3,
+              color: 'text.secondary',
+              fontStyle: 'italic'
+            }}
+          >
+            Not sure which service you need?
+          </Typography>
+          <Button
+            variant="outlined"
+            color="primary"
+            size="large"
+            sx={{
+              px: 5,
+              py: 1.5,
+              fontWeight: 600,
+              borderRadius: '8px',
+              '&:hover': {
+                bgcolor: 'primary.main',
+                color: 'white'
+              }
+            }}
+          >
+            Get Personalized Recommendation
+          </Button>
+        </Box>
       </Container>
     </Box>
   );

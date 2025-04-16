@@ -1,12 +1,12 @@
-import { Box, Typography, Container } from '@mui/material';
+import { Box, Typography, Container, Grid } from '@mui/material';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 const clients = [
-  { name: 'Client 1', logo: '/path/to/client1.png' },
-  { name: 'Client 2', logo: '/path/to/client2.png' },
-  { name: 'Client 3', logo: '/path/to/client3.png' },
+  { name: 'Deloitte', logo: '/path/to/deloitte-logo.png' },
+  { name: 'CARDSEER', logo: '/path/to/cardseer-logo.png' },
+  { name: 'CHASMA AIR FORCE', logo: '/path/to/chasma-logo.png' },
   { name: 'Client 4', logo: '/path/to/client4.png' },
   { name: 'Client 5', logo: '/path/to/client5.png' },
   { name: 'Client 6', logo: '/path/to/client6.png' },
@@ -28,30 +28,6 @@ const testimonials = [
 ];
 
 export const Clients = () => {
-  const clientSettings = {
-    dots: false,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 2000,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-        }
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 2,
-        }
-      }
-    ]
-  };
-
   const testimonialSettings = {
     dots: true,
     infinite: true,
@@ -66,47 +42,70 @@ export const Clients = () => {
     <Box id="clients" sx={{ py: { xs: 6, md: 10 }, bgcolor: 'background.paper' }}>
       <Container maxWidth="lg">
         <Typography
-          variant="h3"
+          variant="h4"
           component="h2"
           align="center"
           gutterBottom
-          sx={{ fontWeight: 700, mb: 8 }}
+          sx={{ 
+            fontWeight: 700, 
+            mb: 6,
+            position: 'relative',
+            '&:after': {
+              content: '""',
+              display: 'block',
+              width: '80px',
+              height: '4px',
+              background: 'linear-gradient(to right, #3f51b5, #2196f3)',
+              margin: '20px auto 0'
+            }
+          }}
         >
-          Our Clients
+          Explore the Companies Investing in our Talent
         </Typography>
 
-        <Box sx={{ mb: 8 }}>
-          <Typography variant="h5" align="center" gutterBottom sx={{ mb: 4 }}>
-            Trusted By
-          </Typography>
-          <Slider {...clientSettings}>
-            {clients.map((client, index) => (
-              <Box key={index} sx={{ px: 2, display: 'flex', justifyContent: 'center' }}>
+        {/* Client Logos Grid - Names Removed */}
+        <Grid container spacing={4} sx={{ mb: 8, justifyContent: 'center', alignItems: 'center' }}>
+          {clients.slice(0, 3).map((client, index) => (
+            <Grid item key={index} xs={12} sm={4} md={4}>
+              <Box sx={{ 
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                height: '100px' // Fixed height for consistent logo display
+              }}>
                 <Box
                   component="img"
                   src={client.logo}
                   alt={client.name}
                   sx={{
-                    height: 80,
+                    maxWidth: '180px',
+                    maxHeight: '80px',
                     width: 'auto',
-                    maxWidth: '100%',
+                    height: 'auto',
                     objectFit: 'contain',
                     filter: 'grayscale(100%)',
-                    opacity: 0.7,
                     transition: 'all 0.3s ease',
                     '&:hover': {
                       filter: 'grayscale(0%)',
-                      opacity: 1,
                     },
                   }}
                 />
               </Box>
-            ))}
-          </Slider>
-        </Box>
+            </Grid>
+          ))}
+        </Grid>
 
+        {/* Testimonials Section (Unchanged) */}
         <Box>
-          <Typography variant="h5" align="center" gutterBottom sx={{ mb: 4 }}>
+          <Typography 
+            variant="h5" 
+            align="center" 
+            gutterBottom 
+            sx={{ 
+              mb: 4,
+              fontWeight: 600
+            }}
+          >
             Testimonials
           </Typography>
           <Slider {...testimonialSettings}>
