@@ -1,12 +1,12 @@
-import { 
-  Box, 
-  Typography, 
-  Container, 
-  Grid, 
-  Card, 
-  CardContent, 
-  CardMedia, 
-  Collapse, 
+import {
+  Box,
+  Typography,
+  Container,
+  Grid,
+  Card,
+  CardContent,
+  CardMedia,
+  Collapse,
   Chip,
   Button
 } from '@mui/material';
@@ -76,28 +76,30 @@ export const Services = () => {
   };
 
   return (
-    <Box id="services" sx={{ 
-      py: { xs: 8, md: 12 },
-      background: 'radial-gradient(circle at center, #f9f9ff 0%, #f0f4ff 100%)',
-      position: 'relative',
-      '&:before': {
-        content: '""',
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        right: 0,
-        height: '20px',
-        background: 'linear-gradient(to right, #3f51b5, #2196f3)'
-      }
-    }}>
+    <Box
+      id="services"
+      sx={{
+        py: { xs: 8, md: 12 },
+        background: 'radial-gradient(circle at center, #f9f9ff 0%, #f0f4ff 100%)',
+        position: 'relative',
+        '&:before': {
+          content: '""',
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          height: '20px',
+          background: 'linear-gradient(to right, #3f51b5, #2196f3)'
+        }
+      }}
+    >
       <Container maxWidth="lg">
         <Typography
           variant="h2"
-          component="h2"
           align="center"
           gutterBottom
-          sx={{ 
-            fontWeight: 800, 
+          sx={{
+            fontWeight: 800,
             mb: 2,
             color: 'text.primary',
             fontSize: { xs: '2.2rem', md: '3rem' },
@@ -105,12 +107,15 @@ export const Services = () => {
             letterSpacing: '-0.5px'
           }}
         >
-          Transform Your Brand With<br /><Box component="span" sx={{ color: 'primary.main' }}>Exceptional Print Solutions</Box>
+          Transform Your Brand With
+          <br />
+          <Box component="span" sx={{ color: 'primary.main' }}>
+            Exceptional Print Solutions
+          </Box>
         </Typography>
 
         <Typography
           variant="h6"
-          component="p"
           align="center"
           sx={{
             mb: 8,
@@ -124,25 +129,21 @@ export const Services = () => {
           Each piece we create is crafted with precision, quality materials, and an eye for detail that elevates your brand above the competition.
         </Typography>
 
-        <Grid container spacing={2} sx={{ justifyContent: 'center' }}>
+        <Grid container spacing={3} justifyContent="center">
           {services.map((service, index) => (
-            <Grid item key={index} xs={12} sm={6} md={3} lg={3} sx={{ 
-              display: 'flex',
-              minWidth: '250px',
-              maxWidth: '280px'
-            }}>
-              <Card sx={{ 
-                width: '100%',
-                display: 'flex',
-                flexDirection: 'column',
-                borderRadius: '12px',
-                boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
-                transition: 'all 0.3s ease',
-                '&:hover': {
-                  transform: 'translateY(-5px)',
-                  boxShadow: '0 8px 20px rgba(0,0,0,0.15)'
-                }
-              }}>
+            <Grid item key={index} xs={12} sm={6} md={3}>
+              <Card
+                sx={{
+                  borderRadius: 3,
+                  boxShadow: 3,
+                  transition: 'transform 0.3s',
+                  position: 'relative',
+                  '&:hover': {
+                    transform: 'translateY(-5px)',
+                    boxShadow: 6
+                  }
+                }}
+              >
                 {service.highlight && (
                   <Chip
                     label={service.highlight}
@@ -152,13 +153,13 @@ export const Services = () => {
                       position: 'absolute',
                       top: 8,
                       right: 8,
-                      zIndex: 1,
                       fontWeight: 600,
-                      fontSize: '0.7rem'
+                      fontSize: '0.7rem',
+                      zIndex: 1
                     }}
                   />
                 )}
-                
+
                 <CardMedia
                   component="img"
                   height="140"
@@ -170,97 +171,78 @@ export const Services = () => {
                     borderTopRightRadius: '12px'
                   }}
                 />
-                
-                <CardContent sx={{ flexGrow: 1, p: 2 }}>
-                  <Typography 
-                    variant="h6" 
-                    sx={{ 
-                      fontWeight: 600,
-                      mb: 1,
-                      fontSize: '1.1rem'
-                    }}
-                  >
+
+                <CardContent sx={{ p: 2 }}>
+                  <Typography variant="h6" sx={{ fontWeight: 600, mb: 1 }}>
                     {service.title}
                   </Typography>
-                  
-                  <Typography 
-                    variant="body2" 
-                    sx={{
-                      mb: 1.5,
-                      fontSize: '0.85rem',
-                      minHeight: '40px'
-                    }}
-                  >
+
+                  <Typography variant="body2" sx={{ mb: 1.5 }}>
                     {service.description}
                   </Typography>
-                  
-                  <Box sx={{ mb: 1.5 }}>
+
+                  <Box sx={{ mb: 1 }}>
                     {service.items.map((item, i) => (
-                      <Typography 
-                        key={i} 
-                        variant="body2" 
-                        sx={{ 
-                          fontSize: '0.8rem',
-                          display: 'flex',
-                          alignItems: 'center',
-                          mb: 0.5
-                        }}
+                      <Typography
+                        key={i}
+                        variant="body2"
+                        sx={{ fontSize: '0.85rem' }}
                       >
                         • {item}
                       </Typography>
                     ))}
                   </Box>
-                  
+
                   <Button
                     variant="outlined"
-                    size="small"
                     fullWidth
-                    endIcon={<ExpandMoreIcon sx={{ 
-                      transform: expandedCard === index ? 'rotate(180deg)' : 'rotate(0deg)',
-                      transition: 'transform 0.3s'
-                    }} />}
+                    endIcon={
+                      <ExpandMoreIcon
+                        sx={{
+                          transform: expandedCard === index ? 'rotate(180deg)' : 'rotate(0deg)',
+                          transition: 'transform 0.3s ease'
+                        }}
+                      />
+                    }
                     onClick={() => handleExpandClick(index)}
-                    sx={{
-                      mb: 1.5,
-                      py: 0.5,
-                      fontSize: '0.75rem'
-                    }}
+                    sx={{ mb: 1, fontSize: '0.75rem' }}
                   >
                     View Pricing
                   </Button>
-                  
+
                   <Collapse in={expandedCard === index}>
-                    <Box sx={{ 
-                      bgcolor: 'action.hover',
-                      p: 1,
-                      borderRadius: '6px',
-                      mb: 1.5
-                    }}>
-                      {service.pricing.map((priceItem, i) => (
-                        <Typography 
-                          key={i} 
-                          variant="body2" 
-                          sx={{ 
-                            fontSize: '0.75rem',
+                    <Box
+                      sx={{
+                        bgcolor: 'action.hover',
+                        p: 1,
+                        borderRadius: 1,
+                        mb: 1
+                      }}
+                    >
+                      {service.pricing.map((p, i) => (
+                        <Typography
+                          key={i}
+                          variant="body2"
+                          sx={{
                             display: 'flex',
-                            justifyContent: 'space-between'
+                            justifyContent: 'space-between',
+                            fontSize: '0.8rem'
                           }}
                         >
-                          <span>{priceItem.item}</span>
-                          <span style={{ fontWeight: 600 }}>{priceItem.price}</span>
+                          <span>{p.item}</span>
+                          <span style={{ fontWeight: 600 }}>{p.price}</span>
                         </Typography>
                       ))}
                     </Box>
                   </Collapse>
-                  
+
                   <Button
                     variant="contained"
-                    size="small"
                     fullWidth
                     sx={{
-                      py: 0.8,
                       fontSize: '0.8rem',
-                      fontWeight: 600
+                      fontWeight: 600,
+                      py: 1
                     }}
                   >
                     {service.cta}
@@ -270,37 +252,6 @@ export const Services = () => {
             </Grid>
           ))}
         </Grid>
-        
-        <Box sx={{ textAlign: 'center', mt: 6 }}>
-          <Typography 
-            variant="h6" 
-            component="p" 
-            sx={{ 
-              mb: 3,
-              color: 'text.secondary',
-              fontStyle: 'italic'
-            }}
-          >
-            Not sure which service you need?
-          </Typography>
-          <Button
-            variant="outlined"
-            color="primary"
-            size="large"
-            sx={{
-              px: 5,
-              py: 1.5,
-              fontWeight: 600,
-              borderRadius: '8px',
-              '&:hover': {
-                bgcolor: 'primary.main',
-                color: 'white'
-              }
-            }}
-          >
-            Get Personalized Recommendation
-          </Button>
-        </Box>
       </Container>
     </Box>
   );

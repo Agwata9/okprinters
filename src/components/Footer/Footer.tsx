@@ -1,19 +1,43 @@
-import { Box, Container, Grid, Typography, Link, Button, TextField } from '@mui/material';
+import {
+  Box,
+  Container,
+  Typography,
+  Link,
+  Button,
+  TextField,
+} from '@mui/material';
 
 export const Footer = () => {
   return (
-    <Box component="footer" sx={{ py: 6, bgcolor: 'primary.main', color: 'primary.contrastText' }}>
+    <Box
+      component="footer"
+      sx={{
+        py: 6,
+        bgcolor: 'primary.main',
+        color: 'primary.contrastText',
+      }}
+    >
       <Container maxWidth="lg">
-        <Grid container spacing={4}>
-          <Grid item xs={12} md={4}>
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: { xs: 'column', md: 'row' },
+            justifyContent: 'space-between',
+            gap: 4,
+          }}
+        >
+          {/* Column 1 */}
+          <Box sx={{ flex: 1 }}>
             <Typography variant="h6" gutterBottom sx={{ fontWeight: 700 }}>
               OK Printers
             </Typography>
-            <Typography variant="body2" component="p">
+            <Typography variant="body2">
               Your trusted partner for high-quality printing services since 2005.
             </Typography>
-          </Grid>
-          <Grid item xs={12} md={4}>
+          </Box>
+
+          {/* Column 2 */}
+          <Box sx={{ flex: 1 }}>
             <Typography variant="h6" gutterBottom sx={{ fontWeight: 700 }}>
               Quick Links
             </Typography>
@@ -34,8 +58,10 @@ export const Footer = () => {
                 Contact
               </Link>
             </Box>
-          </Grid>
-          <Grid item xs={12} md={4}>
+          </Box>
+
+          {/* Column 3 */}
+          <Box sx={{ flex: 1 }}>
             <Typography variant="h6" gutterBottom sx={{ fontWeight: 700 }}>
               Newsletter
             </Typography>
@@ -49,6 +75,8 @@ export const Footer = () => {
                 size="small"
                 sx={{
                   flexGrow: 1,
+                  bgcolor: 'transparent',
+                  input: { color: 'primary.contrastText' },
                   '& .MuiOutlinedInput-root': {
                     '& fieldset': {
                       borderColor: 'primary.contrastText',
@@ -56,9 +84,6 @@ export const Footer = () => {
                     '&:hover fieldset': {
                       borderColor: 'primary.contrastText',
                     },
-                  },
-                  '& .MuiInputBase-input': {
-                    color: 'primary.contrastText',
                   },
                 }}
               />
@@ -71,10 +96,18 @@ export const Footer = () => {
                 Subscribe
               </Button>
             </Box>
-          </Grid>
-        </Grid>
-        <Box sx={{ mt: 4, pt: 3, borderTop: '1px solid rgba(255,255,255,0.1)' }}>
-          <Typography variant="body2" align="center">
+          </Box>
+        </Box>
+
+        <Box
+          sx={{
+            mt: 4,
+            pt: 3,
+            borderTop: '1px solid rgba(255,255,255,0.1)',
+            textAlign: 'center',
+          }}
+        >
+          <Typography variant="body2">
             © {new Date().getFullYear()} OK Printers. All rights reserved.
           </Typography>
         </Box>
