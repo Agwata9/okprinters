@@ -46,8 +46,8 @@ export const Clients = () => {
           component="h2"
           align="center"
           gutterBottom
-          sx={{ 
-            fontWeight: 700, 
+          sx={{
+            fontWeight: 700,
             mb: 6,
             position: 'relative',
             '&:after': {
@@ -60,19 +60,14 @@ export const Clients = () => {
             }
           }}
         >
-          Explore the Companies Investing in our Talent
+          Explore the Companies Investing in Our Talent
         </Typography>
 
-        {/* Client Logos Grid - Names Removed */}
+        {/* Client Logos Grid */}
         <Grid container spacing={4} sx={{ mb: 8, justifyContent: 'center', alignItems: 'center' }}>
           {clients.slice(0, 3).map((client, index) => (
             <Grid item key={index} xs={12} sm={4} md={4}>
-              <Box sx={{ 
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                height: '100px' // Fixed height for consistent logo display
-              }}>
+              <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100px' }}>
                 <Box
                   component="img"
                   src={client.logo}
@@ -95,38 +90,37 @@ export const Clients = () => {
           ))}
         </Grid>
 
-        {/* Testimonials Section (Unchanged) */}
+        {/* Testimonials Section */}
         <Box>
-          <Typography 
-            variant="h5" 
-            align="center" 
-            gutterBottom 
-            sx={{ 
-              mb: 4,
-              fontWeight: 600
-            }}
+          <Typography
+            variant="h5"
+            align="center"
+            gutterBottom
+            sx={{ mb: 4, fontWeight: 600 }}
           >
             Testimonials
           </Typography>
           <Slider {...testimonialSettings}>
             {testimonials.map((testimonial, index) => (
-              <Box key={index} sx={{ px: 4, textAlign: 'center' }}>
-                <Typography
-                  variant="body1"
-                  component="blockquote"
-                  sx={{
-                    fontSize: '1.2rem',
-                    fontStyle: 'italic',
-                    mb: 2,
-                    px: { xs: 2, md: 10 },
-                  }}
-                >
-                  "{testimonial.quote}"
-                </Typography>
-                <Typography variant="subtitle1" component="cite">
-                  — {testimonial.author}
-                </Typography>
-              </Box>
+              <div key={index}>
+                <Box sx={{ px: 4, textAlign: 'center' }}>
+                  <Typography
+                    variant="body1"
+                    component="blockquote"
+                    sx={{
+                      fontSize: '1.2rem',
+                      fontStyle: 'italic',
+                      mb: 2,
+                      px: { xs: 2, md: 10 },
+                    }}
+                  >
+                    "{testimonial.quote}"
+                  </Typography>
+                  <Typography variant="subtitle1" component="cite">
+                    — {testimonial.author}
+                  </Typography>
+                </Box>
+              </div>
             ))}
           </Slider>
         </Box>

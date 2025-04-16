@@ -6,7 +6,7 @@ import {
   Card,
   CardMedia,
   CardContent,
-  useTheme
+  useTheme,
 } from '@mui/material';
 
 export const About = () => {
@@ -38,9 +38,9 @@ export const About = () => {
                 },
               }}
             >
-              <CardMedia
+              <Box
                 component="img"
-                image="/images/about-ok-printers.jpg" // Replace with actual image
+                src="/images/about-ok-printers.jpg" // Replace with actual image
                 alt="OK Printers"
                 sx={{
                   height: { xs: 260, md: 380 },
@@ -102,7 +102,7 @@ export const About = () => {
               </Typography>
             </CardContent>
           </Grid>
-        </Grid>
+        </Grid>     
       </Container>
     </Box>
   );
