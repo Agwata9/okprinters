@@ -53,7 +53,7 @@ const services: ServiceItem[] = [
       { item: "Posters", price: "Ksh 300 each" }
     ],
     highlight: "Fast",
-    cta: "Quote"
+    cta: "Samples"
   },
   {
     title: "Large Format",
@@ -79,7 +79,7 @@ const services: ServiceItem[] = [
       { item: "Labels", price: "Ksh 39 each" }
     ],
     highlight: "Premium",
-    cta: "Design"
+    cta: "Consult"
   }
 ];
 
@@ -311,10 +311,13 @@ export const Services = () => {
           >
             Not sure which service you need?
           </Typography>
-          <Button
+            <Button
             variant="outlined"
             color="primary"
             size="large"
+            href="https://wa.me/254731785732?text=Hi%2C%20I%27m%20interested%20in%20a%20personalized%20print%20recommendation"
+            target="_blank"
+            rel="noopener"
             sx={{
               px: 5,
               py: 1.5,
@@ -322,13 +325,13 @@ export const Services = () => {
               borderRadius: '8px',
               fontSize: '1rem',
               '&:hover': {
-                backgroundColor: theme.palette.primary.main,
-                color: theme.palette.primary.contrastText
+              backgroundColor: theme.palette.primary.main,
+              color: theme.palette.primary.contrastText
               }
             }}
-          >
+            >
             Get Personalized Recommendation
-          </Button>
+            </Button>
         </Box>
       </Container>
     </Box>
