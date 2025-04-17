@@ -3,7 +3,6 @@ import {
   Typography,
   Container,
   Divider,
-  Grid,
   Chip,
   Paper,
   Tooltip
@@ -35,7 +34,7 @@ export const Contact = () => {
     {
       icon: <Phone color="primary" />,
       title: 'Phone',
-      value: '+254 (731) 7857-32',
+      value: '+254 731 785732',
       subtitle: 'Available 8AM - 6PM',
       chip: 'Fast Response'
     },
@@ -80,7 +79,7 @@ export const Contact = () => {
             mb: 8,
             position: 'relative',
             '&::after': {
-              content: '""',
+              content: '""' as any,
               display: 'block',
               width: '80px',
               height: '4px',
@@ -109,9 +108,24 @@ export const Contact = () => {
             Our Contact Info
           </Typography>
 
-          <Grid container spacing={3} mb={4}>
+          {/* Replaced Grid container with Flexbox */}
+          <Box 
+            sx={{
+              display: 'flex',
+              flexDirection: { xs: 'column', sm: 'row' },
+              gap: 3,
+              mb: 4,
+              flexWrap: 'wrap'
+            }}
+          >
             {contactInfo.map((info, idx) => (
-              <Grid item xs={12} sm={4} key={idx}>
+              <Box 
+                key={idx}
+                sx={{
+                  flex: { xs: '1 1 100%', sm: '1 1 calc(33.333% - 24px)' },
+                  minWidth: 0
+                }}
+              >
                 <Box
                   sx={{
                     p: 2,
@@ -149,9 +163,9 @@ export const Contact = () => {
                     {info.subtitle}
                   </Typography>
                 </Box>
-              </Grid>
+              </Box>
             ))}
-          </Grid>
+          </Box>
 
           <Divider sx={{ my: 3 }}>
             <AccessTime color="primary" />
@@ -212,37 +226,46 @@ export const Contact = () => {
             >
               Follow Us
             </Typography>
-            <Grid container spacing={2}>
+            {/* Replaced Grid container with CSS Grid */}
+            <Box
+              sx={{
+                display: 'grid',
+                gridTemplateColumns: { 
+                  xs: 'repeat(2, 1fr)', 
+                  sm: 'repeat(3, 1fr)', 
+                  md: 'repeat(6, 1fr)' 
+                },
+                gap: 2
+              }}
+            >
               {socialMedia.map((media, idx) => (
-                <Grid item xs={6} sm={4} md={2} key={idx}>
-                  <Tooltip title={media.name} arrow>
-                    <Box
-                      sx={{
-                        p: 2,
-                        textAlign: 'center',
-                        bgcolor: 'action.hover',
-                        borderRadius: 3,
-                        cursor: 'pointer',
-                        transition: '0.3s',
-                        '&:hover': {
-                          bgcolor: media.color,
-                          color: '#fff',
-                          transform: 'scale(1.05)'
-                        }
-                      }}
+                <Tooltip title={media.name} arrow key={idx}>
+                  <Box
+                    sx={{
+                      p: 2,
+                      textAlign: 'center',
+                      bgcolor: 'action.hover',
+                      borderRadius: 3,
+                      cursor: 'pointer',
+                      transition: '0.3s',
+                      '&:hover': {
+                        bgcolor: media.color,
+                        color: '#fff',
+                        transform: 'scale(1.05)'
+                      }
+                    }}
+                  >
+                    {media.icon}
+                    <Typography
+                      variant="caption"
+                      sx={{ mt: 1, display: 'block', fontWeight: 600 }}
                     >
-                      {media.icon}
-                      <Typography
-                        variant="caption"
-                        sx={{ mt: 1, display: 'block', fontWeight: 600 }}
-                      >
-                        {media.name}
-                      </Typography>
-                    </Box>
-                  </Tooltip>
-                </Grid>
+                      {media.name}
+                    </Typography>
+                  </Box>
+                </Tooltip>
               ))}
-            </Grid>
+            </Box>
           </Box>
         </Paper>
       </Container>

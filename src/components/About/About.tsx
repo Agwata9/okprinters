@@ -1,15 +1,22 @@
-import {
-  Box,
-  Typography,
-  Container,
-  Grid,
-  Card,
- 
-  CardContent,
-  useTheme,
-} from '@mui/material';
+import React from 'react';
+import { Box, Typography, Container, Card, CardContent, useTheme } from '@mui/material';
 
-export const About = () => {
+interface AboutContent {
+  title: string;
+  subtitle: string;
+  description: string;
+  imageSrc: string;
+}
+
+const aboutContent: AboutContent = {
+  title: 'Who We Are',
+  subtitle: 'OK Printers — Your Trusted Print Partner Since 2005',
+  description:
+    'At OK Printers, we specialize in a variety of printing services, from high-quality business cards to large-scale commercial prints. We are proud to serve clients in Kenya, with a reputation for timely deliveries and unparalleled quality.',
+  imageSrc: '/images/OK_.png', // Replace with actual image path
+};
+
+export const About: React.FC = () => {
   const theme = useTheme();
 
   return (
@@ -22,9 +29,16 @@ export const About = () => {
       }}
     >
       <Container maxWidth="lg">
-        <Grid container spacing={8} alignItems="center">
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: { xs: 'column', md: 'row' },
+            gap: { xs: 4, md: 8 },
+            alignItems: 'center'
+          }}
+        >
           {/* Image Section */}
-          <Grid item xs={12} md={6}>
+          <Box sx={{ width: { xs: '100%', md: '50%' }, flexShrink: 0 }}>
             <Card
               elevation={6}
               sx={{
@@ -40,7 +54,7 @@ export const About = () => {
             >
               <Box
                 component="img"
-                src="/images/about-ok-printers.jpg" // Replace with actual image
+                src={aboutContent.imageSrc}
                 alt="OK Printers"
                 sx={{
                   height: { xs: 260, md: 380 },
@@ -49,10 +63,10 @@ export const About = () => {
                 }}
               />
             </Card>
-          </Grid>
+          </Box>
 
           {/* Text Section */}
-          <Grid item xs={12} md={6}>
+          <Box sx={{ width: { xs: '100%', md: '50%' } }}>
             <Typography
               variant="h4"
               component="h2"
@@ -63,7 +77,7 @@ export const About = () => {
                 color: 'text.primary',
               }}
             >
-              Who We Are
+              {aboutContent.title}
             </Typography>
 
             <Typography
@@ -75,34 +89,20 @@ export const About = () => {
                 fontSize: '1rem',
               }}
             >
-              OK Printers — Your Trusted Print Partner Since 2005
+              {aboutContent.subtitle}
             </Typography>
 
             <CardContent sx={{ px: 0 }}>
               <Typography
                 variant="body1"
                 paragraph
-                sx={{ fontSize: '1.1rem', lineHeight: 1.75, color: 'text.secondary' }}
+                sx={{ fontSize: '1rem', lineHeight: 1.8 }}
               >
-                At OK Printers, we blend craftsmanship with cutting-edge print technology to deliver
-                stunning results for businesses and individuals alike.
-              </Typography>
-              <Typography
-                variant="body1"
-                paragraph
-                sx={{ fontSize: '1.1rem', lineHeight: 1.75, color: 'text.secondary' }}
-              >
-                With nearly two decades of experience, our team is committed to bringing your ideas to life — from bold banners to elegant invitations.
-              </Typography>
-              <Typography
-                variant="body1"
-                sx={{ fontSize: '1.1rem', lineHeight: 1.75, color: 'text.secondary' }}
-              >
-                Choose OK Printers for quality you can see, and service you can trust.
+                {aboutContent.description}
               </Typography>
             </CardContent>
-          </Grid>
-        </Grid>     
+          </Box>
+        </Box>
       </Container>
     </Box>
   );

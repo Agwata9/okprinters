@@ -1,8 +1,12 @@
-import { Box, Typography, Container, Grid } from '@mui/material';
+import React from 'react';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
+// Clients list
 const clients = [
   { name: 'Deloitte', logo: '/path/to/deloitte-logo.png' },
   { name: 'CARDSEER', logo: '/path/to/cardseer-logo.png' },
@@ -12,6 +16,7 @@ const clients = [
   { name: 'Client 6', logo: '/path/to/client6.png' },
 ];
 
+// Testimonials list
 const testimonials = [
   {
     quote: "OK Printers delivered our event materials on time and with exceptional quality.",
@@ -27,20 +32,22 @@ const testimonials = [
   }
 ];
 
-export const Clients = () => {
-  const testimonialSettings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 5000
-  };
+// Slider settings
+const testimonialSettings = {
+  dots: true,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  autoplay: true,
+  autoplaySpeed: 5000
+};
 
+export const Clients: React.FC = () => {
   return (
     <Box id="clients" sx={{ py: { xs: 6, md: 10 }, bgcolor: 'background.paper' }}>
       <Container maxWidth="lg">
+        {/* Section Heading */}
         <Typography
           variant="h4"
           component="h2"
@@ -63,32 +70,47 @@ export const Clients = () => {
           Explore the Companies Investing in Our Talent
         </Typography>
 
-        {/* Client Logos Grid */}
-        <Grid container spacing={4} sx={{ mb: 8, justifyContent: 'center', alignItems: 'center' }}>
+        {/* Client Logos (Flexbox) */}
+        <Box
+          sx={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'center',
+            gap: { xs: 4, md: 6 },
+            mb: 8
+          }}
+        >
           {clients.slice(0, 3).map((client, index) => (
-            <Grid item key={index} xs={12} sm={4} md={4}>
-              <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100px' }}>
-                <Box
-                  component="img"
-                  src={client.logo}
-                  alt={client.name}
-                  sx={{
-                    maxWidth: '180px',
-                    maxHeight: '80px',
-                    width: 'auto',
-                    height: 'auto',
-                    objectFit: 'contain',
-                    filter: 'grayscale(100%)',
-                    transition: 'all 0.3s ease',
-                    '&:hover': {
-                      filter: 'grayscale(0%)',
-                    },
-                  }}
-                />
-              </Box>
-            </Grid>
+            <Box
+              key={index}
+              sx={{
+                width: { xs: '80%', sm: '40%', md: '25%' },
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                height: '100px'
+              }}
+            >
+              <Box
+                component="img"
+                src={client.logo}
+                alt={client.name}
+                sx={{
+                  maxWidth: '180px',
+                  maxHeight: '80px',
+                  width: 'auto',
+                  height: 'auto',
+                  objectFit: 'contain',
+                  filter: 'grayscale(100%)',
+                  transition: 'all 0.3s ease',
+                  '&:hover': {
+                    filter: 'grayscale(0%)',
+                  }
+                }}
+              />
+            </Box>
           ))}
-        </Grid>
+        </Box>
 
         {/* Testimonials Section */}
         <Box>
@@ -111,7 +133,7 @@ export const Clients = () => {
                       fontSize: '1.2rem',
                       fontStyle: 'italic',
                       mb: 2,
-                      px: { xs: 2, md: 10 },
+                      px: { xs: 2, md: 10 }
                     }}
                   >
                     "{testimonial.quote}"
