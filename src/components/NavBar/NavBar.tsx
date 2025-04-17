@@ -1,4 +1,4 @@
-import { AppBar, Toolbar, Typography, Button, Box, IconButton, Menu, MenuItem, useMediaQuery, useTheme } from '@mui/material';
+import { AppBar, Toolbar, Button, Box, IconButton, Menu, MenuItem, useMediaQuery, useTheme } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useState } from 'react';
 
@@ -26,9 +26,24 @@ export const NavBar = () => {
   return (
     <AppBar position="sticky" sx={{ bgcolor: 'primary.main' }}>
       <Toolbar sx={{ justifyContent: 'space-between', maxWidth: 'lg', mx: 'auto', width: '100%' }}>
-        <Typography variant="h6" component="div" sx={{ fontWeight: 700 }}>
-          OK Printers
-        </Typography>
+        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+          {/* Improved logo implementation */}
+          <Box 
+            component="img"
+            src="/images/OK_.png"
+            alt="Company Logo"
+            sx={{ 
+              height: 40,
+              width: 'auto',
+              mr: 1,
+              '&:hover': {
+                opacity: 0.8,
+                transition: 'opacity 0.3s ease'
+              }
+            }}
+          />
+          
+        </Box>
 
         {isMobile ? (
           <>

@@ -32,7 +32,7 @@ export const Footer = () => {
               OK Printers
             </Typography>
             <Typography variant="body2">
-              Your trusted partner for high-quality printing services since 2005.
+              Your trusted partner for high-quality printing services.
             </Typography>
           </Box>
 

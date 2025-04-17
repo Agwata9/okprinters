@@ -7,7 +7,6 @@ import {
   CardContent, 
   CardMedia, 
   Collapse, 
-
   Chip,
   Button
 } from '@mui/material';
@@ -19,12 +18,12 @@ const services = [
   {
     title: "Business Printing",
     description: "Premium corporate materials",
-    image: "/images/business-printing.jpg",
+    image: "/images/img-services/business-printing.jpeg",
     items: ["Business Cards", "Letterheads", "Envelopes"],
     pricing: [
-      { item: "Cards", price: "$99/100" },
-      { item: "Letterheads", price: "$149/100" },
-      { item: "Envelopes", price: "$79/100" }
+      { item: "Cards", price: "Ksh 1,000/100" },
+      { item: "Letterheads", price: "Ksh 500/50" },
+      { item: "Envelopes", price: "Ksh 1,000/100" }
     ],
     highlight: "Popular",
     cta: "Samples"
@@ -32,12 +31,12 @@ const services = [
   {
     title: "Marketing Materials",
     description: "Effective promotional pieces",
-    image: "/images/marketing-materials.jpg",
+    image: "/images/img-services/marketing.jpeg",
     items: ["Brochures", "Flyers", "Posters"],
     pricing: [
-      { item: "Brochures", price: "$249/500" },
-      { item: "Flyers", price: "$129/1000" },
-      { item: "Posters", price: "$29 each" }
+      { item: "Brochures", price: "Ksh 1,000/100" },
+      { item: "Flyers", price: "Ksh 1,000/100" },
+      { item: "Posters", price: "Ksh 300 each" }
     ],
     highlight: "Fast",
     cta: "Quote"
@@ -45,12 +44,12 @@ const services = [
   {
     title: "Large Format",
     description: "Attention-grabbing visuals",
-    image: "/images/large-format.jpg",
+    image: "/images/img-services/largeformat.jpeg",
     items: ["Banners", "Backdrops", "Vehicle Wraps"],
     pricing: [
-      { item: "Banners", price: "$8/sq ft" },
-      { item: "Backdrops", price: "$15/sq ft" },
-      { item: "Wraps", price: "From $999" }
+      { item: "Banners", price: "Ksh 800/sq ft" },
+      { item: "Backdrops", price: "Ksh 1500/sq ft" },
+      { item: "Wraps", price: "From Ksh 10,000" }
     ],
     highlight: "Custom",
     cta: "Consult"
@@ -58,12 +57,12 @@ const services = [
   {
     title: "Custom Printing",
     description: "Unique branded pieces",
-    image: "/images/custom-printing.jpg",
+    image: "/images/img-services/custom.jpeg",
     items: ["Invitations", "Greeting Cards", "Labels"],
     pricing: [
-      { item: "Invitations", price: "$4.99 each" },
-      { item: "Cards", price: "$3.49 each" },
-      { item: "Labels", price: "$0.39 each" }
+      { item: "Invitations", price: "Ksh 499 each" },
+      { item: "Cards", price: "Ksh 349 each" },
+      { item: "Labels", price: "Ksh 39 each" }
     ],
     highlight: "Premium",
     cta: "Design"
