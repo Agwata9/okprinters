@@ -8,13 +8,28 @@ import {
   CardMedia, 
   Collapse, 
   Chip,
-  Button
+  Button,
+  useTheme
 } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-
 import { useState } from 'react';
 
-const services = [
+interface PricingItem {
+  item: string;
+  price: string;
+}
+
+interface ServiceItem {
+  title: string;
+  description: string;
+  image: string;
+  items: string[];
+  pricing: PricingItem[];
+  highlight?: string;
+  cta: string;
+}
+
+const services: ServiceItem[] = [
   {
     title: "Business Printing",
     description: "Premium corporate materials",
@@ -70,6 +85,7 @@ const services = [
 ];
 
 export const Services = () => {
+  const theme = useTheme();
   const [expandedCard, setExpandedCard] = useState<number | null>(null);
 
   const handleExpandClick = (index: number) => {
@@ -77,73 +93,94 @@ export const Services = () => {
   };
 
   return (
-    <Box id="services" sx={{ 
-      py: { xs: 8, md: 12 },
-      background: 'radial-gradient(circle at center, #f9f9ff 0%, #f0f4ff 100%)',
-      position: 'relative',
-      '&:before': {
-        content: '""',
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        right: 0,
-        height: '20px',
-        background: 'linear-gradient(to right, #3f51b5, #2196f3)'
-      }
-    }}>
+    <Box 
+      id="services" 
+      component="section"
+      sx={{ 
+        py: { xs: 8, md: 12 },
+        background: theme.palette.background.paper,
+        position: 'relative',
+        overflow: 'hidden',
+        '&::before': {
+          content: '""',
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          height: '4px',
+          background: `linear-gradient(to right, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`
+        }
+      }}
+    >
       <Container maxWidth="lg">
         <Typography
           variant="h2"
           component="h2"
           align="center"
           gutterBottom
-          sx={{ 
-            fontWeight: 800, 
-            mb: 2,
-            color: 'text.primary',
-            fontSize: { xs: '2.2rem', md: '3rem' },
+          sx={{
+            fontWeight: 800,
+            mb: 3,
+            fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' },
             lineHeight: 1.2,
-            letterSpacing: '-0.5px'
+            letterSpacing: '-0.5px',
+            color: theme.palette.text.primary,
           }}
         >
-          Transform Your Brand With<br /><Box component="span" sx={{ color: 'primary.main' }}>Exceptional Print Solutions</Box>
+          Transform Your Brand With{' '}
+          <Box 
+            component="span" 
+            sx={{ 
+              color: 'primary.main',
+              background: `linear-gradient(120deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`,
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent'
+            }}
+          >
+            Exceptional Print Solutions
+          </Box>
         </Typography>
 
         <Typography
-          variant="h6"
-          component="p"
+          variant="subtitle1"
           align="center"
           sx={{
             mb: 8,
-            color: 'text.secondary',
             maxWidth: '700px',
             mx: 'auto',
-            fontSize: { xs: '1.1rem', md: '1.25rem' },
-            lineHeight: 1.6
+            fontSize: { xs: '1rem', md: '1.1rem' },
+            lineHeight: 1.6,
+            color: theme.palette.text.secondary,
           }}
         >
           Each piece we create is crafted with precision, quality materials, and an eye for detail that elevates your brand above the competition.
         </Typography>
 
-        <Grid container spacing={2} sx={{ justifyContent: 'center' }}>
+        <Grid container spacing={3} justifyContent="center">
           {services.map((service, index) => (
-            <Grid item key={index} xs={12} sm={6} md={3} lg={3} sx={{ 
-              display: 'flex',
-              minWidth: '250px',
-              maxWidth: '280px'
-            }}>
-              <Card sx={{ 
-                width: '100%',
-                display: 'flex',
-                flexDirection: 'column',
-                borderRadius: '12px',
-                boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
-                transition: 'all 0.3s ease',
-                '&:hover': {
-                  transform: 'translateY(-5px)',
-                  boxShadow: '0 8px 20px rgba(0,0,0,0.15)'
-                }
-              }}>
+            <Grid 
+              item 
+              key={index} 
+              xs={12} 
+              sm={6} 
+              md={4} 
+              lg={3}
+              sx={{ display: 'flex' }}
+            >
+              <Card 
+                sx={{ 
+                  width: '100%',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  borderRadius: '12px',
+                  boxShadow: theme.shadows[2],
+                  transition: 'all 0.3s ease',
+                  '&:hover': {
+                    transform: 'translateY(-8px)',
+                    boxShadow: theme.shadows[6]
+                  }
+                }}
+              >
                 {service.highlight && (
                   <Chip
                     label={service.highlight}
@@ -151,34 +188,37 @@ export const Services = () => {
                     size="small"
                     sx={{
                       position: 'absolute',
-                      top: 8,
-                      right: 8,
+                      top: 12,
+                      right: 12,
                       zIndex: 1,
-                      fontWeight: 600,
-                      fontSize: '0.7rem'
+                      fontWeight: 700,
+                      fontSize: '0.65rem',
+                      textTransform: 'uppercase',
+                      letterSpacing: '0.5px'
                     }}
                   />
                 )}
                 
                 <CardMedia
                   component="img"
-                  height="140"
                   image={service.image}
                   alt={service.title}
                   sx={{
+                    height: 160,
                     objectFit: 'cover',
                     borderTopLeftRadius: '12px',
                     borderTopRightRadius: '12px'
                   }}
                 />
                 
-                <CardContent sx={{ flexGrow: 1, p: 2 }}>
+                <CardContent sx={{ flexGrow: 1, p: 3 }}>
                   <Typography 
-                    variant="h6" 
+                    variant="h5" 
+                    component="h3"
                     sx={{ 
-                      fontWeight: 600,
-                      mb: 1,
-                      fontSize: '1.1rem'
+                      fontWeight: 700,
+                      mb: 1.5,
+                      fontSize: '1.25rem'
                     }}
                   >
                     {service.title}
@@ -186,25 +226,27 @@ export const Services = () => {
                   
                   <Typography 
                     variant="body2" 
+                    color="text.secondary"
                     sx={{
-                      mb: 1.5,
-                      fontSize: '0.85rem',
+                      mb: 2,
+                      fontSize: '0.9rem',
                       minHeight: '40px'
                     }}
                   >
                     {service.description}
                   </Typography>
                   
-                  <Box sx={{ mb: 1.5 }}>
+                  <Box sx={{ mb: 2 }}>
                     {service.items.map((item, i) => (
                       <Typography 
                         key={i} 
                         variant="body2" 
                         sx={{ 
-                          fontSize: '0.8rem',
+                          fontSize: '0.85rem',
                           display: 'flex',
                           alignItems: 'center',
-                          mb: 0.5
+                          mb: 1,
+                          color: theme.palette.text.secondary,
                         }}
                       >
                         • {item}
@@ -216,40 +258,51 @@ export const Services = () => {
                     variant="outlined"
                     size="small"
                     fullWidth
-                    endIcon={<ExpandMoreIcon sx={{ 
-                      transform: expandedCard === index ? 'rotate(180deg)' : 'rotate(0deg)',
-                      transition: 'transform 0.3s'
-                    }} />}
+                    endIcon={
+                      <ExpandMoreIcon sx={{ 
+                        transform: expandedCard === index ? 'rotate(180deg)' : 'rotate(0deg)',
+                        transition: 'transform 0.3s'
+                      }} />
+                    }
                     onClick={() => handleExpandClick(index)}
                     sx={{
-                      mb: 1.5,
-                      py: 0.5,
-                      fontSize: '0.75rem'
+                      mb: 2,
+                      py: 1,
+                      fontSize: '0.8rem',
+                      fontWeight: 600,
+                      borderRadius: '6px'
                     }}
                   >
                     View Pricing
                   </Button>
                   
-                  <Collapse in={expandedCard === index}>
-                    <Box sx={{ 
-                      bgcolor: 'action.hover',
-                      p: 1,
-                      borderRadius: '6px',
-                      mb: 1.5
-                    }}>
+                  <Collapse in={expandedCard === index} timeout="auto" unmountOnExit>
+                    <Box 
+                      sx={{ 
+                        bgcolor: theme.palette.action.hover,
+                        p: 1.5,
+                        borderRadius: '8px',
+                        mb: 2
+                      }}
+                    >
                       {service.pricing.map((priceItem, i) => (
-                        <Typography 
+                        <Box 
                           key={i} 
-                          variant="body2" 
                           sx={{ 
-                            fontSize: '0.75rem',
                             display: 'flex',
-                            justifyContent: 'space-between'
+                            justifyContent: 'space-between',
+                            alignItems: 'center',
+                            mb: 1,
+                            '&:last-child': { mb: 0 }
                           }}
                         >
-                          <span>{priceItem.item}</span>
-                          <span style={{ fontWeight: 600 }}>{priceItem.price}</span>
-                        </Typography>
+                          <Typography variant="body2" sx={{ fontSize: '0.8rem' }}>
+                            {priceItem.item}
+                          </Typography>
+                          <Typography variant="body2" sx={{ fontWeight: 700, fontSize: '0.8rem' }}>
+                            {priceItem.price}
+                          </Typography>
+                        </Box>
                       ))}
                     </Box>
                   </Collapse>
@@ -259,9 +312,11 @@ export const Services = () => {
                     size="small"
                     fullWidth
                     sx={{
-                      py: 0.8,
-                      fontSize: '0.8rem',
-                      fontWeight: 600
+                      py: 1.2,
+                      fontSize: '0.85rem',
+                      fontWeight: 700,
+                      borderRadius: '6px',
+                      letterSpacing: '0.5px'
                     }}
                   >
                     {service.cta}
@@ -272,14 +327,14 @@ export const Services = () => {
           ))}
         </Grid>
         
-        <Box sx={{ textAlign: 'center', mt: 6 }}>
+        <Box sx={{ textAlign: 'center', mt: 8 }}>
           <Typography 
-            variant="h6" 
-            component="p" 
+            variant="subtitle1"
             sx={{ 
               mb: 3,
-              color: 'text.secondary',
-              fontStyle: 'italic'
+              color: theme.palette.text.secondary,
+              fontStyle: 'italic',
+              fontSize: '1.1rem'
             }}
           >
             Not sure which service you need?
@@ -291,11 +346,12 @@ export const Services = () => {
             sx={{
               px: 5,
               py: 1.5,
-              fontWeight: 600,
+              fontWeight: 700,
               borderRadius: '8px',
+              fontSize: '1rem',
               '&:hover': {
-                bgcolor: 'primary.main',
-                color: 'white'
+                backgroundColor: theme.palette.primary.main,
+                color: theme.palette.primary.contrastText
               }
             }}
           >
