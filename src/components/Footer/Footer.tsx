@@ -4,10 +4,13 @@ import {
   Typography,
   Link,
   Button,
-  TextField,
+  
 } from '@mui/material';
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 
 export const Footer = () => {
+  const whatsappChannelLink = "https://whatsapp.com/channel/your-channel-link"; // Replace with your actual WhatsApp channel link
+
   return (
     <Box
       component="footer"
@@ -31,9 +34,15 @@ export const Footer = () => {
             <Typography variant="h6" gutterBottom sx={{ fontWeight: 700 }}>
               OK Printers
             </Typography>
-            <Typography variant="body2">
+            <Typography variant="body2" paragraph>
               Your trusted partner for high-quality printing services.
             </Typography>
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+              <WhatsAppIcon fontSize="small" />
+              <Typography variant="body2">
+                +2547 9540 5151
+              </Typography>
+            </Box>
           </Box>
 
           {/* Column 2 */}
@@ -60,42 +69,36 @@ export const Footer = () => {
             </Box>
           </Box>
 
-          {/* Column 3 */}
+          {/* Column 3 - WhatsApp Subscription */}
           <Box sx={{ flex: 1 }}>
             <Typography variant="h6" gutterBottom sx={{ fontWeight: 700 }}>
-              Newsletter
+              WhatsApp Updates
             </Typography>
             <Typography variant="body2" paragraph>
-              Subscribe to our newsletter for updates and special offers.
+              Join our WhatsApp channel for instant updates and exclusive offers.
             </Typography>
-            <Box component="form" sx={{ display: 'flex' }}>
-              <TextField
-                placeholder="Your email"
-                variant="outlined"
-                size="small"
-                sx={{
-                  flexGrow: 1,
-                  bgcolor: 'transparent',
-                  input: { color: 'primary.contrastText' },
-                  '& .MuiOutlinedInput-root': {
-                    '& fieldset': {
-                      borderColor: 'primary.contrastText',
-                    },
-                    '&:hover fieldset': {
-                      borderColor: 'primary.contrastText',
-                    },
-                  },
-                }}
-              />
-              <Button
-                type="submit"
-                variant="contained"
-                color="secondary"
-                sx={{ ml: 1 }}
-              >
-                Subscribe
-              </Button>
-            </Box>
+            <Button
+              variant="contained"
+              color="success"
+              startIcon={<WhatsAppIcon />}
+              href={whatsappChannelLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              fullWidth
+              sx={{
+                py: 1.5,
+                fontWeight: 600,
+                bgcolor: '#25D366',
+                '&:hover': {
+                  bgcolor: '#128C7E',
+                }
+              }}
+            >
+              Join Our Channel
+            </Button>
+            <Typography variant="caption" display="block" sx={{ mt: 1, opacity: 0.8 }}>
+              Get notified about our latest products and promotions
+            </Typography>
           </Box>
         </Box>
 

@@ -12,7 +12,7 @@ const aboutContent: AboutContent = {
   title: 'Who We Are',
   subtitle: 'OK Printers — Your Trusted Print Partner in Kenya',
   description:
-    'At OK Printers, we specialize in a variety of design and printing services, from high-quality business cards to large-scale commercial prints. We are proud to serve clients in Kenya, with a reputation for timely deliveries and unparalleled quality.',
+    'At OK Printers, we specialize in a variety of printing and design services, from high-quality business cards to large-scale commercial prints. We are proud to serve clients in Kenya, with a reputation for timely deliveries and unparalleled quality.',
   imageSrc: '/images/OK_.png', // Replace with actual image path
 };
 

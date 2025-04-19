@@ -34,15 +34,15 @@ export const Contact = () => {
     {
       icon: <Phone color="primary" />,
       title: 'Phone',
-      value: '+254 731 785732',
-      subtitle: 'Available 8AM - 6PM',
+      value: '+2547 9540 5151',
+      subtitle: 'Available 7AM - 6PM',
       chip: 'Fast Response'
     },
     {
       icon: <Email color="primary" />,
       title: 'Email',
       value: 'info@okprinters.com',
-      subtitle: 'Response within 24 hours',
+      subtitle: 'Available 24 hours',
       chip: 'Preferred'
     },
     {

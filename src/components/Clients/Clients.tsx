@@ -20,9 +20,9 @@ const clients: Client[] = [
   { name: 'Diecast', logo: '/images/clients/diecast.png' },
   { name: 'Holiday Hype', logo: '/images/clients/holiday_hype.png' },
   { name: 'Roxiie', logo: '/images/clients/roxiie.png' },
-  { name: 'Safaricom', logo: '/images/clients/safaricom.png' },
+  { name: 'Safaricom', logo: '/images/clients/safcom.png' },
   { name: 'KCB Bank', logo: '/images/clients/kcb.png' },
-  { name: 'Nairobi Hospital', logo: '/images/clients/nairobi-hospital.png' },
+  { name: 'Nairobi Hospital', logo: '/images/clients/nbohos.png' },
 ];
 
 const testimonials: Testimonial[] = [

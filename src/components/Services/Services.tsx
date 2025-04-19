@@ -30,7 +30,7 @@ interface ServiceItem {
 
 const services: ServiceItem[] = [
   {
-    title: "Business Printing",
+    title: "Business Printing and Design",
     description: "Premium corporate materials",
     image: "/images/img-services/business-printing.jpeg",
     items: ["Business Cards", "Letterheads", "Envelopes"],
@@ -43,7 +43,7 @@ const services: ServiceItem[] = [
     cta: "Samples"
   },
   {
-    title: "Marketing Materials",
+    title: "Marketing Materials Printing and Design",
     description: "Effective promotional pieces",
     image: "/images/img-services/marketing.jpeg",
     items: ["Brochures", "Flyers", "Posters"],
@@ -56,7 +56,7 @@ const services: ServiceItem[] = [
     cta: "Samples"
   },
   {
-    title: "Large Format",
+    title: "Large Format Printing and Design",
     description: "Attention-grabbing visuals",
     image: "/images/img-services/largeformat.jpeg",
     items: ["Banners", "Backdrops", "Vehicle Wraps"],
@@ -135,7 +135,7 @@ export const Services = () => {
               WebkitTextFillColor: 'transparent'
             }}
           >
-            Exceptional Print Solutions
+            Exceptional Printing & Design Solutions
           </Box>
         </Typography>
 
@@ -315,7 +315,7 @@ export const Services = () => {
             variant="outlined"
             color="primary"
             size="large"
-            href="https://wa.me/254731785732?text=Hi%2C%20I%27m%20interested%20in%20a%20personalized%20print%20recommendation"
+            href="https://wa.me/254795405151?text=Hi%2C%20I%27m%20interested%20in%20a%20personalized%20print%20recommendation"
             target="_blank"
             rel="noopener"
             sx={{
