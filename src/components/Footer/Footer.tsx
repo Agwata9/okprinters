@@ -35,12 +35,12 @@ export const Footer = () => {
               OK Printers
             </Typography>
             <Typography variant="body2" paragraph>
-              Your trusted partner for high-quality printing services.
+              Your trusted partner for high-quality printing & design services.
             </Typography>
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
               <WhatsAppIcon fontSize="small" />
               <Typography variant="body2">
-                +2547 9540 5151
+                +254 795 405 151
               </Typography>
             </Box>
           </Box>
@@ -59,9 +59,6 @@ export const Footer = () => {
               </Link>
               <Link href="#services" color="inherit" underline="hover" sx={{ mb: 1 }}>
                 Services
-              </Link>
-              <Link href="#clients" color="inherit" underline="hover" sx={{ mb: 1 }}>
-                Clients
               </Link>
               <Link href="#contact" color="inherit" underline="hover">
                 Contact

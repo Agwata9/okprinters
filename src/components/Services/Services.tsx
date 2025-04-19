@@ -69,7 +69,7 @@ const services: ServiceItem[] = [
     cta: "Consult"
   },
   {
-    title: "Custom Printing",
+    title: "Custom Printing and Design",
     description: "Unique branded pieces",
     image: "/images/img-services/custom.jpeg",
     items: ["Invitations", "Greeting Cards", "Labels"],
